@@ -31,7 +31,7 @@ import java.util.ResourceBundle;
  *
  */
 public class Translator {
-  public static String BUNDLE_NAME = "can4eve";
+  public static String BUNDLE_NAME = "i18n";
   public static Locale[] SUPPORTED_LOCALES = { Locale.ENGLISH, Locale.GERMAN };
 
   private static ResourceBundle resourceBundle;
@@ -85,16 +85,13 @@ public class Translator {
    * initialize me
    * @return the resource Bundle for the given localName
    */
-  public static ResourceBundle initialize(String localeName) {
+  public static ResourceBundle initialize(String bundleName,String localeName) {
+    BUNDLE_NAME=bundleName;
     if (localeName==null)
       localeName=Locale.getDefault().getLanguage();
     Locale locale = new Locale(localeName);
     Locale.setDefault(locale);
     return loadBundle(locale);
-  }
-  
-  public static void initialize() {
-    initialize(null);
   }
 
   /**
@@ -109,6 +106,10 @@ public class Translator {
     return resourceBundle;
   }
 
+  /**
+   * get the current bundle
+   * @return the resource bundle
+   */
   public static ResourceBundle getBundle() {
     return resourceBundle;
   }
