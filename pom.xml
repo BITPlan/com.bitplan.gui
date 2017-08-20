@@ -85,6 +85,56 @@
 					</includes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<!-- see http://central.sonatype.org/pages/apache-maven.html Javadoc
+					and Sources Attachments To get Javadoc and Source jar files generated,
+					you
+					have to configure the javadoc and source Maven plugins. -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<overview>${basedir}\src\main\java\overview.html</overview>
+					<verbose>true</verbose>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- GPG Signed Components The Maven GPG plugin is used to sign the components
+				with the following configuration. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<!-- according to : http://central.sonatype.org/pages/apache-maven.html 
 				Nexus Staging Maven Plugin for Deployment and Release The Nexus Staging Maven 
 				Plugin is the recommended way to deploy your components to OSSRH and release 
@@ -100,6 +150,19 @@
 					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 					<!-- set to true for automation -->
 					<autoReleaseAfterClose>false</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+			<!-- Maven release plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<useReleaseProfile>false</useReleaseProfile>
+					<releaseProfiles>release</releaseProfiles>
+					<goals>deploy</goals>
+					<arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
 				</configuration>
 			</plugin>
 		</plugins>
