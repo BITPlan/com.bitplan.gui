@@ -6,6 +6,21 @@ Generic Graphical User Interface decription interfaces
 * repository: https://github.com/BITPlan/com.bitplan.gui
 * issues: https://github.com/BITPlan/com.bitplan.gui/issues
 
+### Distribution
+Available at Maven Central see 
+
+http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.1|jar
+
+Maven dependency:
+
+```xml
+<dependency>
+  <groupId>com.bitplan.gui</groupId>
+  <artifactId>com.bitplan.gui</artifactId>
+  <version>0.0.1</version>
+</dependency>
+```
+
 ### License
 https://www.apache.org/licenses/LICENSE-2.0
 
