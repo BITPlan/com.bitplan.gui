@@ -20,6 +20,8 @@
  */
 package com.bitplan.gui;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -43,9 +45,9 @@ public class App implements ExceptionHelper {
   String help;
   private List<Group> groups = new ArrayList<Group>();
   private List<ExceptionHelp> exceptionHelps=new ArrayList<ExceptionHelp>();
-  private Map<String,ExceptionHelp> exceptionHelpByName=new HashMap<String,ExceptionHelp>();
-  private Map<String,Group> groupById=new HashMap<String,Group>();
-  private Menu mainMenu;
+  private transient Map<String,ExceptionHelp> exceptionHelpByName=new HashMap<String,ExceptionHelp>();
+  private transient Map<String,Group> groupById=new HashMap<String,Group>();
+  Menu mainMenu;
 
   public String getName() {
     return name;
@@ -189,22 +191,40 @@ public class App implements ExceptionHelper {
 
   private static App instance;
 
-
+  /**
+   * get the Instance from the given classPath path
+   * @param path
+   * @return
+   * @throws Exception
+   */
+  public static App getInstance(String path) throws Exception {
+    InputStream jsonStream=App.class.getClassLoader()
+        .getResourceAsStream(path);
+    if (jsonStream == null) {
+      throw new Exception(
+          String.format("Could not load App  from classpath " + path));
+    }
+    return getInstance(jsonStream);
+  }
+  
+  /**
+   * get the App description from the given file
+   * @param file
+   * @return - the App
+   * @throws Exception
+   */
+  public static App getInstance(File file) throws Exception {
+    InputStream jsonStream=new FileInputStream(file);
+    return getInstance(jsonStream);
+  }
+  
   /**
    * get the Application instance as configured
    * @return - the application
    * @throws Exception
    */
-  public static App getInstance() throws Exception {
+  public static App getInstance(InputStream jsonStream) throws Exception {
     if (instance == null) {
-      // FIXME make configurable
-      String path = "com/bitplan/can4eve/gui/CanTriplet.json";
-      InputStream jsonStream = App.class.getClassLoader()
-          .getResourceAsStream(path);
-      if (jsonStream == null) {
-        throw new Exception(
-            String.format("Could not load App  from classpath " + path));
-      }
       instance = App.fromJsonStream(jsonStream);
     }
     return instance;

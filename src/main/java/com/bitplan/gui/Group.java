@@ -33,6 +33,7 @@ import java.util.Map;
 public class Group {
   String id;
   String name;
+  String icon;
   private List<Form> forms = new ArrayList<Form>();
   private Map<String,Form> formById=new HashMap<String,Form>();
   public String getId() {
@@ -49,6 +50,14 @@ public class Group {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getIcon() {
+    return icon;
+  }
+
+  public void setIcon(String icon) {
+    this.icon = icon;
   }
 
   public List<Form> getForms() {
