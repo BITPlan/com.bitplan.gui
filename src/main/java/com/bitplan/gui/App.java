@@ -128,7 +128,8 @@ public class App implements ExceptionHelper {
   
   /**
    * get the form by the given id
-   * @param id
+   * @param groupId
+   * @param formId
    * @return the form by id
    */
   public Form getFormById(String groupId,String formId) {
@@ -139,7 +140,7 @@ public class App implements ExceptionHelper {
   
   /**
    * get the exception help by the given name
-   * @param exception
+   * @param exceptionKey
    * @return - the exception help
    */
   public ExceptionHelp getExceptionHelpByName(String exceptionKey) {
@@ -163,7 +164,7 @@ public class App implements ExceptionHelper {
    * get the App from the given Json Stream
    * 
    * @param jsonStream
-   * @return
+   * @return the App
    * @throws Exception
    */
   public static App fromJsonStream(InputStream jsonStream) throws Exception {
@@ -194,7 +195,7 @@ public class App implements ExceptionHelper {
   /**
    * get the Instance from the given classPath path
    * @param path
-   * @return
+   * @return the App
    * @throws Exception
    */
   public static App getInstance(String path) throws Exception {

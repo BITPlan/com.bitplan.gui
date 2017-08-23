@@ -61,7 +61,7 @@ public interface JsonManager<T extends JsonAble> {
 
   /**
    * get the Gson implementation
-   * @return
+   * @return the Gson
    */
   public Gson getGson();
 

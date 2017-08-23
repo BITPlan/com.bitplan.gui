@@ -65,7 +65,7 @@ public interface JsonAble extends AsJson {
 
   /**
    * get my values a a map
-   * @return
+   * @return - the map of values
    */
   @SuppressWarnings("unchecked")
   default Map<String,Object> asMap() {

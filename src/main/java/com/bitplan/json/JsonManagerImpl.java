@@ -88,7 +88,7 @@ public class JsonManagerImpl<T extends JsonAble> implements JsonManager<T> {
   /**
    * get the Gson
    * 
-   * @return
+   * @return the Gson implementation
    */
   public static Gson getGsonStatic() {
     GsonBuilder gsonBuilder = new GsonBuilder();
