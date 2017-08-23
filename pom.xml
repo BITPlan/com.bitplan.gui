@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bitplan.gui</groupId>
 	<artifactId>com.bitplan.gui</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<name>com.bitplan.gui</name>
 	<description>generic GUI interface description</description>
 	<url>https://github.com/BITPlan/com.bitplan.gui</url>
