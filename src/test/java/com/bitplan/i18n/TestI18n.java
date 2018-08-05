@@ -28,6 +28,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.bitplan.gui.App;
@@ -36,8 +37,6 @@ import com.bitplan.gui.Form;
 import com.bitplan.gui.Group;
 import com.bitplan.gui.Menu;
 import com.bitplan.gui.MenuItem;
-import com.bitplan.i18n.I18n;
-import com.bitplan.i18n.Translator;
 
 /**
  * check the translation for an Application - each Application might want to implement an extension for this test
@@ -45,15 +44,19 @@ import com.bitplan.i18n.Translator;
  *
  */
 public abstract class TestI18n {
+  @BeforeClass
+  public static void unsetLenient() {
+    Translator.lenient=false;
+  }
   @SuppressWarnings("rawtypes")
   public abstract Class getI18nClass();
   public abstract App getApp() throws Exception;
   public abstract String getI18nName();
   
-  static boolean show = false;
-  static boolean showError = true;
+  protected static boolean show = false;
+  protected static boolean showError = true;
   String locales[] = { "en", "de" };
-
+  
   /**
    * get the underscored version of the given identifier
    * 
@@ -162,7 +165,7 @@ public abstract class TestI18n {
          for (Form form:group.getForms()) {
            errors+=checkText(form.getTitle(),form.getId()+"/"+form.getIcon());
            for (com.bitplan.gui.Field field:form.getFields()) {
-             // errors+=checkText(field.getTitle());
+             errors+=checkText(form.getTitle()+"_"+field.getTitle());
            }
          }
       }
