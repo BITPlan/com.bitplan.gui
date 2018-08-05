@@ -2,7 +2,7 @@
 Generic Graphical User Interface decription interfaces
 
 [![Build Status](https://travis-ci.org/BITPlan/com.bitplan.gui.svg?branch=master)](https://travis-ci.org/BITPlan/com.bitplan.gui)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.bitplan/com.bitplan.gui/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.bitplan/com.bitplan.gui)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.bitplan.gui/com.bitplan.gui/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.bitplan.gui/com.bitplan.gui)
 
 ### github repository
 * repository: https://github.com/BITPlan/com.bitplan.gui
@@ -22,6 +22,9 @@ Maven dependency:
   <version>0.0.3</version>
 </dependency>
 ```
+
+### Documentation 
+see http://wiki.bitplan.com/index.php/com.bitplan.gui
 
 ### License
 https://www.apache.org/licenses/LICENSE-2.0
