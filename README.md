@@ -2,6 +2,8 @@
 Generic Graphical User Interface decription interfaces
 
 [![Build Status](https://travis-ci.org/BITPlan/com.bitplan.gui.svg?branch=master)](https://travis-ci.org/BITPlan/com.bitplan.gui)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.bitplan/com.bitplan.gui/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.bitplan/com.bitplan.gui)
+
 ### github repository
 * repository: https://github.com/BITPlan/com.bitplan.gui
 * issues: https://github.com/BITPlan/com.bitplan.gui/issues
