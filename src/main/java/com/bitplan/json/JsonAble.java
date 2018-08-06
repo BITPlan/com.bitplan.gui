@@ -34,7 +34,7 @@ import com.bitplan.i18n.Translator;
  * @author wf
  *
  */
-public interface JsonAble extends AsJson {
+public interface JsonAble extends AsJson,JsonValueMap {
   /**
    * reinitialize me after being reloaded from json
    */

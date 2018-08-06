@@ -20,6 +20,8 @@
  */
 package com.bitplan.gui;
 
+import com.bitplan.json.ValueMap;
+
 /**
  * presenter for a given type
  * @author wf
@@ -27,6 +29,10 @@ package com.bitplan.gui;
  * @param <T>
  */
 public interface  Presenter<T> {
-  public void updateView(T model);
+  public void updateView();
   public T updateModel();
+  public T getModel();
+  public void setModel(T model);
+  public ValueMap getView();
+  public void setView(ValueMap valueMap);
 }
