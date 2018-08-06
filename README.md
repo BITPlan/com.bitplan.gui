@@ -11,7 +11,7 @@ Generic Graphical User Interface decription interfaces
 ### Distribution
 Available at Maven Central see 
 
-http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.5|jar
+http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.6|jar
 
 Maven dependency:
 
@@ -19,7 +19,7 @@ Maven dependency:
 <dependency>
   <groupId>com.bitplan.gui</groupId>
   <artifactId>com.bitplan.gui</artifactId>
-  <version>0.0.5</version>
+  <version>0.0.6</version>
 </dependency>
 ```
 
@@ -38,3 +38,4 @@ https://www.apache.org/licenses/LICENSE-2.0
 * 2017-08-23 0.0.3 - adds Presenter interface
 * 2018-08-05 0.0.4 - improves I18n support adds link to documentation
 * 2018-08-05 0.0.5 - fixes incomplete release to maven central
+* 2018-08-06 0.0.6 - improves I18n support and TestI18n utility

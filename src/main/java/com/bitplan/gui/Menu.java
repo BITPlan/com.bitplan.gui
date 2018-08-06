@@ -28,7 +28,7 @@ import java.util.List;
  * @author wf
  *
  */
-public class Menu {
+public class Menu implements Control {
   String id;
   String title;
   String shortCut;
@@ -63,5 +63,16 @@ public class Menu {
   }
   public void setSubMenus(List<Menu> subMenus) {
     this.subMenus = subMenus;
+  }
+  public void reinit() {
+    if (this.id==null)
+      if (this.title!=null)
+        this.id=title+"Menu";
+    for (Menu subMenu:this.subMenus) {
+      subMenu.reinit();
+    }
+    for (MenuItem menuItem:this.menuItems) {
+      menuItem.reinit(this);
+    }
   }
 }

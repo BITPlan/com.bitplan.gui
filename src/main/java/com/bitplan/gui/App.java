@@ -104,6 +104,7 @@ public class App implements ExceptionHelper {
    * reinitializatin of data structures
    */
   public void reinit() {
+    getMainMenu().reinit();
     for (Group group:this.getGroups()) {
       group.reinit();
       if (group.getId()!=null)

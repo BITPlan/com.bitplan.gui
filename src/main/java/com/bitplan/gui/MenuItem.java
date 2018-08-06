@@ -25,10 +25,11 @@ package com.bitplan.gui;
  * @author wf
  *
  */
-public class MenuItem {
+public class MenuItem implements Control {
   String id;
   String title;
   String shortCut;
+  transient Menu parentMenu;
   public String getId() {
     return id;
   }
@@ -46,5 +47,11 @@ public class MenuItem {
   }
   public void setShortCut(String shortCut) {
     this.shortCut = shortCut;
+  }
+  public void reinit(Menu parentMenu) {
+    this.parentMenu=parentMenu;
+    if (this.id==null)
+      if (this.title!=null)
+        this.id=parentMenu.id+"."+title+"MenuItem";
   }
 }

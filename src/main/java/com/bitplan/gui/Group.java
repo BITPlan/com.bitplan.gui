@@ -30,9 +30,9 @@ import java.util.Map;
  * @author wf
  *
  */
-public class Group {
+public class Group implements Control {
   String id;
-  String name;
+  String title;
   String icon;
   private List<Form> forms = new ArrayList<Form>();
   private Map<String,Form> formById=new HashMap<String,Form>();
@@ -44,12 +44,12 @@ public class Group {
     this.id = id;
   }
 
-  public String getName() {
-    return name;
+  public String getTitle() {
+    return title;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   public String getIcon() {
@@ -78,9 +78,12 @@ public class Group {
   }
   
   /**
-   * reinitializatin of data structures
+   * reinitialization of data structures
    */
   public void reinit() {
+    if (this.id==null)
+      if (this.title!=null)
+        this.id=title+"Group";
     for (Form form:this.getForms()) {
       form.reinit();
       if (form.getId()!=null)

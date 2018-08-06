@@ -25,7 +25,7 @@ package com.bitplan.gui;
  * @author wf
  *
  */
-public class Field {
+public class Field implements Control {
   String id;
   String label;
   String hint;
@@ -38,6 +38,7 @@ public class Field {
   int fieldSize;
   Integer gridX;
   Integer gridY;
+  transient Form form;
   public String getTitle() {
     return title;
   }
@@ -116,15 +117,22 @@ public class Field {
   public void setGridY(Integer gridY) {
     this.gridY = gridY;
   }
+  public Form getForm() {
+    return form;
+  }
+  public void setForm(Form form) {
+    this.form = form;
+  }
   public String getFormat() {
     return format;
   }
   public void setFormat(String format) {
     this.format = format;
   }
-  public void reinit() {
+  public void reinit(Form pForm) {
+    setForm(pForm);
     if (this.id==null) {
-      this.id=title;
+      this.id=pForm.id+"."+title+"Field";
     }
     if (this.label==null) {
       this.label=title;

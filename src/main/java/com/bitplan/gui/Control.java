@@ -18,33 +18,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.bitplan.i18n;
-
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-import com.bitplan.i18n.Translator;
+package com.bitplan.gui;
 
 /**
- * test the Translator
+ * common interface for all gui controls
  * @author wf
  *
  */
-public class TestTranslator {
-
-  @Test
-  public void testTranslator() {
-    Translator.initialize("i18n","de");
-    assertEquals("Hilfe",Translator.translate("help"));
-    Translator.initialize("i18n","en");
-    assertEquals("Help",Translator.translate("help"));
-  }
-  
-  @Test
-  public void testAsUnderScore() {
-    assertEquals("A__B",TestI18n.asUnderScore("A.B"));
-    assertEquals("CAMEL_CASE__FOR_ALL",TestI18n.asUnderScore("CamelCase.ForAll"));
-  }
-
+public interface Control {
+  public String getId();
+  public String getTitle();
 }

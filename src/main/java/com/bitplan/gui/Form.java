@@ -28,11 +28,12 @@ import java.util.List;
  * @author wf
  *
  */
-public class Form {
+public class Form implements Control {
   String id;
   String icon;
   String title;
   String headerText;
+  Boolean readOnly=false;
   private List<Field> fields=new ArrayList<Field>();
   
   public String getId() {
@@ -61,6 +62,12 @@ public class Form {
     this.headerText = headerText;
   }
  
+  public Boolean getReadOnly() {
+    return readOnly;
+  }
+  public void setReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+  }
   public List<Field> getFields() {
     return fields;
   }
@@ -69,9 +76,11 @@ public class Form {
   }
   
   public void reinit() {
+    if (this.id==null)
+      if (this.title!=null)
+        id=this.title+"Form";
     for (Field field:this.getFields()) {
-      field.reinit();
+      field.reinit(this);
     }
-    
   }
 }
