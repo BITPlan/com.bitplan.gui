@@ -11,7 +11,7 @@ Generic Graphical User Interface decription interfaces
 ### Distribution
 Available at Maven Central see 
 
-http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.6|jar
+http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.7|jar
 
 Maven dependency:
 
@@ -19,7 +19,7 @@ Maven dependency:
 <dependency>
   <groupId>com.bitplan.gui</groupId>
   <artifactId>com.bitplan.gui</artifactId>
-  <version>0.0.6</version>
+  <version>0.0.7</version>
 </dependency>
 ```
 
