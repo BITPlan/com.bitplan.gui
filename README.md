@@ -39,3 +39,4 @@ https://www.apache.org/licenses/LICENSE-2.0
 * 2018-08-05 0.0.4 - improves I18n support adds link to documentation
 * 2018-08-05 0.0.5 - fixes incomplete release to maven central
 * 2018-08-06 0.0.6 - improves I18n support and TestI18n utility
+* 2018-08-06 0.0.7 - refactors to provide getI18nId
