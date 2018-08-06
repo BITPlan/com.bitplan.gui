@@ -141,6 +141,6 @@ public class Field implements Control {
   }
   @Override
   public String getI18nId() {
-    return this.form.id+"."+this.id+"Field";
+    return this.form.getI18nId()+"."+this.id+"Field";
   }
 }

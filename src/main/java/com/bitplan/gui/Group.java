@@ -31,12 +31,12 @@ import java.util.Map;
  *
  */
 public class Group implements Control {
-  String id;
+  private String id;
   String title;
   String icon;
   private List<Form> forms = new ArrayList<Form>();
   private Map<String,Form> formById=new HashMap<String,Form>();
-  public String getId() {
+  protected String getId() {
     return id;
   }
 

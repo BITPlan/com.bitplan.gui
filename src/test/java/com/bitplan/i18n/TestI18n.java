@@ -161,6 +161,12 @@ public abstract class TestI18n {
       for (Check check : checks) {
         if (check.th != null)
           errors++;
+        String constantName = this.i18nFields.constantForKey.get(check.i18nId);
+        if (constantName == null)
+          errors++;
+        else if (!i18nFields.fieldList.contains(constantName)
+            && !(constantName.endsWith("_FIELD")))
+          errors++;
       }
     }
 
@@ -188,9 +194,11 @@ public abstract class TestI18n {
           String constantName = this.i18nFields.constantForKey
               .get(check.i18nId);
           if (constantName == null) {
-            System.out.println(String.format("#%s %s missing\n%s=", check.hint,check.clazz.getName(),check.i18nId));
+            System.out.println(String.format("#%s %s missing\n%s=", check.hint,
+                check.clazz.getName(), check.i18nId));
           } else {
-            if (!this.i18nFields.fieldList.contains(constantName)) {
+            if (!this.i18nFields.fieldList.contains(constantName)
+                && !(constantName.endsWith("_FIELD"))) {
               System.out.println("  public static final String " + constantName
                   + "=\"" + check.i18nId + "\"; //" + check.translated);
             }

@@ -29,14 +29,14 @@ import java.util.List;
  *
  */
 public class Form implements Control {
-  String id;
+  private String id;
   String icon;
   String title;
   String headerText;
   Boolean readOnly=false;
   private List<Field> fields=new ArrayList<Field>();
   
-  public String getId() {
+  protected String getId() {
     return id;
   }
   public void setId(String id) {
