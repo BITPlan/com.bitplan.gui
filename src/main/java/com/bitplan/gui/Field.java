@@ -132,11 +132,15 @@ public class Field implements Control {
   public void reinit(Form pForm) {
     setForm(pForm);
     if (this.id==null) {
-      this.id=pForm.id+"."+title+"Field";
+      this.id=title+"Field";
     }
     if (this.label==null) {
       this.label=title;
     }
     
+  }
+  @Override
+  public String getI18nId() {
+    return this.form.id+"."+this.id;
   }
 }

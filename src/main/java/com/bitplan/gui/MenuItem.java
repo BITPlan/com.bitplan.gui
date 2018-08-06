@@ -54,4 +54,8 @@ public class MenuItem implements Control {
       if (this.title!=null)
         this.id=parentMenu.id+"."+title+"MenuItem";
   }
+  @Override
+  public String getI18nId() {
+    return this.id;
+  }
 }

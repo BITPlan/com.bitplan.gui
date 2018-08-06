@@ -27,5 +27,6 @@ package com.bitplan.gui;
  */
 public interface Control {
   public String getId();
+  public String getI18nId();
   public String getTitle();
 }

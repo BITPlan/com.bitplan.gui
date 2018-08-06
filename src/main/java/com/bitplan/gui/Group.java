@@ -90,4 +90,9 @@ public class Group implements Control {
         this.formById.put(form.getId(), form);
     }
   }
+
+  @Override
+  public String getI18nId() {
+    return this.id;
+  }
 }

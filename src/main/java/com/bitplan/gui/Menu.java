@@ -75,4 +75,8 @@ public class Menu implements Control {
       menuItem.reinit(this);
     }
   }
+  @Override
+  public String getI18nId() {
+    return this.id;
+  }
 }

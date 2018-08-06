@@ -83,4 +83,8 @@ public class Form implements Control {
       field.reinit(this);
     }
   }
+  @Override
+  public String getI18nId() {
+    return this.id;
+  }
 }

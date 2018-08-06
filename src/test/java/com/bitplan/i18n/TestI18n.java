@@ -273,13 +273,13 @@ public abstract class TestI18n {
     List<Check> checks = new ArrayList<Check>();
     List<Menu> submenus = menu.getSubMenus();
     if (submenus.size() == 0)
-      checks.add(checkText(menu, menu.getId(),
+      checks.add(checkText(menu, menu.getI18nId(),
           menu.getTitle() + "/" + menu.getShortCut()));
     for (Menu submenu : submenus) {
       checks.addAll(checkMenu(submenu));
     }
     for (MenuItem menuItem : menu.getMenuItems()) {
-      checks.add(checkText(menuItem, menuItem.getId(),
+      checks.add(checkText(menuItem, menuItem.getI18nId(),
           menuItem.getTitle() + "/" + menuItem.getShortCut()));
     }
     return checks;
@@ -330,15 +330,15 @@ public abstract class TestI18n {
       CheckList checkList = new CheckList(locale);
       Translator.initialize(getI18nName(), locale);
       for (Group group : app.getGroups()) {
-        checkList.checks.add(checkText(group, group.getId(),
+        checkList.checks.add(checkText(group, group.getI18nId(),
             group.getTitle() + "/" + group.getIcon()));
         for (Form form : group.getForms()) {
-          checkList.checks.add(checkText(form, form.getId(),
+          checkList.checks.add(checkText(form, form.getI18nId(),
               form.getTitle() + "/" + form.getIcon()));
           if (withFieldCheck)
             for (com.bitplan.gui.Field field : form.getFields()) {
               checkList.checks
-                  .add(checkText(field, field.getId(), field.getTitle()));
+                  .add(checkText(field, field.getI18nId(), field.getTitle()));
             }
         }
       }
