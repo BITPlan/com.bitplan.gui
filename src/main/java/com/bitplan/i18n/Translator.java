@@ -35,16 +35,16 @@ import java.util.logging.Logger;
  */
 public class Translator {
   // prepare a LOGGER
-  protected static Logger LOGGER = Logger
-      .getLogger("com.bitplan.i18");
+  protected static Logger LOGGER = Logger.getLogger("com.bitplan.i18");
 
-  public static String BUNDLE_NAME = "i18n";
+  public static String APPLICATION_PREFIX = "i18n";
   public static Locale[] SUPPORTED_LOCALES = { Locale.ENGLISH, Locale.GERMAN };
 
   private static ResourceBundle resourceBundle;
   private static MessageFormat formatter;
   // ignore errors - if set to false Exceptions will be thrown instead
-  public static boolean lenient=true;
+  public static boolean lenient = true;
+  public static boolean debug = false;
 
   /**
    * translate the given message with the given params
@@ -54,28 +54,32 @@ public class Translator {
    * @return - the translated text
    */
   public static String translate(String messageName, Object... params) {
-    if (resourceBundle==null) {
-      LOGGER.log(Level.SEVERE,"I18n is not initialized "+messageName+" not translated");
+    if (resourceBundle == null) {
+      LOGGER.log(Level.SEVERE,
+          "I18n is not initialized " + messageName + " not translated");
       return messageName;
     }
     try {
-      if (messageName==null) {
-        String msg="Translate asked for null - returned as empty string";
+      if (messageName == null) {
+        String msg = "Translate asked for null - returned as empty string";
         if (!lenient)
           throw new IllegalArgumentException(msg);
-        LOGGER.log(Level.INFO, msg);
+        if (debug)
+          LOGGER.log(Level.INFO, msg);
         return "";
       }
-        
+
       String message = resourceBundle.getString(messageName);
       formatter.applyPattern(message);
       String i18n = formatter.format(params);
       return i18n;
     } catch (MissingResourceException mre) {
-      String msg="I18n is not fully configured "+messageName+" not translated";
+      String msg = "I18n is not fully configured " + messageName
+          + " not translated";
       if (!lenient)
         throw new IllegalArgumentException(msg);
-      LOGGER.log(Level.WARNING,msg);
+      if (debug)
+        LOGGER.log(Level.WARNING, msg);
       return messageName;
     }
   }
@@ -88,7 +92,7 @@ public class Translator {
    * @return - the translated message
    */
   public static String translate(String messageName, Object param) {
-    return translate(messageName,new Object[] { param });
+    return translate(messageName, new Object[] { param });
   }
 
   /**
@@ -98,7 +102,7 @@ public class Translator {
    * @return - the translated message
    */
   public static String translate(String messageName) {
-    return translate(messageName,new Object[] {});
+    return translate(messageName, new Object[] {});
   }
 
   /**
@@ -119,7 +123,7 @@ public class Translator {
    */
   public static ResourceBundle initialize(String bundleName,
       String localeName) {
-    BUNDLE_NAME = bundleName;
+    APPLICATION_PREFIX = bundleName;
     if (localeName == null)
       localeName = Locale.getDefault().getLanguage();
     Locale locale = new Locale(localeName);
@@ -134,7 +138,7 @@ public class Translator {
    * @return - the resource bundle for the given locale
    */
   public static ResourceBundle loadBundle(Locale locale) {
-    resourceBundle = ResourceBundle.getBundle("i18n/" + BUNDLE_NAME, locale);
+    resourceBundle = ResourceBundle.getBundle("i18n/" + APPLICATION_PREFIX, locale);
     formatter = new MessageFormat("");
     formatter.setLocale(locale);
     return resourceBundle;

@@ -27,13 +27,14 @@ import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 
+import com.bitplan.i18n.Translator;
+
 /**
  * for jsonable POJOs
  * @author wf
  *
  */
 public interface JsonAble extends AsJson {
-  public static String appName="can4eve";
   /**
    * reinitialize me after being reloaded from json
    */
@@ -57,7 +58,7 @@ public interface JsonAble extends AsJson {
   
   static File getJsonFile(String name) {
     String home = System.getProperty("user.home");
-    File configDirectory=new File(home+"/."+appName+"/");
+    File configDirectory=new File(home+"/."+Translator.APPLICATION_PREFIX+"/");
     String jsonFileName = name+".json";
     File jsonFile = new File(configDirectory, jsonFileName);
     return jsonFile;
@@ -79,6 +80,5 @@ public interface JsonAble extends AsJson {
    * @param map
    */
   public void fromMap(Map<String, Object> map);
-  
   
 }
