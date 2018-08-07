@@ -24,7 +24,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Constructor;
 
+import com.bitplan.error.ErrorHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -36,6 +38,27 @@ import com.google.gson.GsonBuilder;
  */
 public class JsonManagerImpl<T extends JsonAble> implements JsonManager<T> {
   Class<T> clazz;
+  T instance;
+
+  /**
+   * get the Instance
+   */
+  public T getInstance() {
+    File jsonFile = JsonAble.getJsonFile(clazz.getSimpleName());
+    try {
+      if (jsonFile.canRead()) {
+        instance = fromJsonFile(jsonFile);
+      }
+      if (instance == null) {
+        Constructor<T> ctor;
+        ctor = clazz.getConstructor(clazz);
+        instance = ctor.newInstance(new Object[] {});
+      }
+    } catch (Throwable th) {
+      ErrorHandler.handle(th);
+    }
+    return instance;
+  }
 
   /**
    * construct me for the given class

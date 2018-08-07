@@ -11,7 +11,7 @@ Generic Graphical User Interface decription interfaces
 ### Distribution
 Available at Maven Central see 
 
-http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.7|jar
+http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.8|jar
 
 Maven dependency:
 
@@ -40,3 +40,4 @@ https://www.apache.org/licenses/LICENSE-2.0
 * 2018-08-05 0.0.5 - fixes incomplete release to maven central
 * 2018-08-06 0.0.6 - improves I18n support and TestI18n utility
 * 2018-08-06 0.0.7 - refactors to provide getI18nId
+* 2018-08-07 0.0.8 - refactors to provide getInstance

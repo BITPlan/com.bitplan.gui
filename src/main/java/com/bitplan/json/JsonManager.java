@@ -34,6 +34,12 @@ import com.google.gson.Gson;
 public interface JsonManager<T extends JsonAble> {
 
   /**
+   * get a singleton instance e.g. from a property file
+   * @return the instance
+   */
+  public T getInstance();
+  
+  /**
    * get a T from the given Json File
    * 
    * @param jsonFile
