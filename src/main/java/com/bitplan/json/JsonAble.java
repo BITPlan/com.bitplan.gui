@@ -56,10 +56,15 @@ public interface JsonAble extends AsJson,JsonValueMap {
     return jsonFile; 
   }
   
-  static File getJsonFile(String name) {
+  /**
+   * get the json file for the given appName
+   * @param appName
+   * @return the Json File
+   */
+  static File getJsonFile(String appName) {
     String home = System.getProperty("user.home");
     File configDirectory=new File(home+"/."+Translator.APPLICATION_PREFIX+"/");
-    String jsonFileName = name+".json";
+    String jsonFileName = appName+".json";
     File jsonFile = new File(configDirectory, jsonFileName);
     return jsonFile;
   }

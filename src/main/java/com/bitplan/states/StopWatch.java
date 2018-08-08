@@ -18,36 +18,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.bitplan.json;
+package com.bitplan.states;
 
-import java.util.Map;
-
-public interface JsonValueMap extends ValueMap {
-
-  public Map<String, Object> asMap();
-
+/**
+ * generic StopWatch
+ * @author wf
+ *
+ */
+public interface StopWatch {
   /**
-   * initialize my values from the given map
-   * 
-   * @param map
+   * set the time to the given milliSeconds
+   * @param mSecs
    */
-  public void fromMap(Map<String, Object> map);
-
+  public void setTime(long mSecs);
   /**
-   * set my values from the given map
-   * 
-   * @param valueMap
+   * get the time in msecs
    */
-  public default void setValues(Map<String, Object> valueMap) {
-    fromMap(valueMap);
-  }
-
+  public long getTime();
+  
+  // set stopwatch to all zeros
+  public void reset();
+  
+  // halt the stopwatch
+  public void halt();
+  
   /**
-   * get the values
-   * 
-   * @return the valueMap
+   * set the active status of this stopWatch
+   * @param active
    */
-  public default Map<String, Object> getValueMap() {
-    return asMap();
-  };
+  public void setActive(boolean active);
+  public boolean isActive();
+  
+  /**
+   * get my ISO representation
+   * @return
+   */
+  String asIsoDateStr();
 }
