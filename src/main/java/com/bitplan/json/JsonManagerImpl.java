@@ -51,8 +51,8 @@ public class JsonManagerImpl<T extends JsonAble> implements JsonManager<T> {
       }
       if (instance == null) {
         Constructor<T> ctor;
-        ctor = clazz.getConstructor(clazz);
-        instance = ctor.newInstance(new Object[] {});
+        ctor = clazz.getConstructor();
+        instance = ctor.newInstance();
       }
     } catch (Throwable th) {
       ErrorHandler.handle(th);
