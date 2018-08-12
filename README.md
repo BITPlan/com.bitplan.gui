@@ -43,3 +43,4 @@ https://www.apache.org/licenses/LICENSE-2.0
 * 2018-08-07 0.0.8 - refactors to provide getInstance
 * 2018-08-09 0.0.9 - refactors to add StopWatch interface
 * 2018-08-10 0.0.10 - fixes getInstance
+* 2018-08-11 0.0.11 - improves JsonAble
