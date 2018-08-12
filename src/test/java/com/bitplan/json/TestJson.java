@@ -20,11 +20,16 @@
  */
 package com.bitplan.json;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
+import java.util.Date;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.Test;
+
+import com.bitplan.json.TestJson.PoJo.BaseColor;
 
 /**
  * test the json Handling
@@ -61,5 +66,76 @@ public class TestJson {
         "  \"firstname\": \"John\",\n" + 
         "  \"eMail\": \"john@doe.org\"\n" + 
         "}",json);
+  }
+  
+  public static class PoJo implements JsonAble {
+    enum BaseColor {Red,Green,Blue};
+    BaseColor baseColor;
+    Date date;
+    int i;
+    Integer i2;
+    long l;
+    Long l2;
+    double d;
+    Double d2;
+    boolean b;
+    Boolean b1;
+    String s="txt";
+    Object o=null;
+    
+    public PoJo() {};
+    public PoJo(BaseColor baseColor,Date date,int i, Integer i2, long l, Long l2, double d, Double d2,
+        boolean b, Boolean b1, String s, Object o) {
+      super();
+      this.baseColor=baseColor;
+      this.date=date;
+      this.i = i;
+      this.i2 = i2;
+      this.l = l;
+      this.l2 = l2;
+      this.d = d;
+      this.d2 = d2;
+      this.b = b;
+      this.b1 = b1;
+      this.s = s;
+      this.o = o;
+    }
+    
+  }
+  
+  @Test
+  public void testMap() {
+    boolean debug=true;
+    Date now=new Date(1534077204741L);
+    PoJo pojo=new PoJo(BaseColor.Red,now,1,2,3,4L,5.0,6.0,false,true,"txt",null);
+    String json="{\n" + 
+        "  \"baseColor\": \"Red\",\n" + 
+        "  \"date\": \"2018-08-12T14:33:24.741Z\",\n" + 
+        "  \"i\": 1,\n" + 
+        "  \"i2\": 2,\n" + 
+        "  \"l\": 3,\n" + 
+        "  \"l2\": 4,\n" + 
+        "  \"d\": 5.0,\n" + 
+        "  \"d2\": 6.0,\n" + 
+        "  \"b\": false,\n" + 
+        "  \"b1\": true,\n" + 
+        "  \"s\": \"txt\"\n" + 
+        "}";
+    if (debug)
+      System.out.println(pojo.asJson());
+    assertEquals(json,pojo.asJson());
+    Map<String, Object> map = pojo.asMap();
+    assertEquals(11,map.size());
+    if (debug)
+    for (Entry<String, Object> mapEntry:map.entrySet()) {
+      System.out.println(String.format("%s (%s)=%s",mapEntry.getKey(),mapEntry.getValue().getClass().getName(),""+mapEntry.getValue()));
+    }
+    assertTrue(map.get("l") instanceof Long);
+    assertTrue(map.get("l2") instanceof Long);
+    assertTrue(map.get("i") instanceof Integer);
+    assertTrue(map.get("i2") instanceof Integer);
+    PoJo pojo2=new PoJo();
+    pojo2.fromMap(map);
+    assertEquals(json,pojo2.asJson());
   }
 }

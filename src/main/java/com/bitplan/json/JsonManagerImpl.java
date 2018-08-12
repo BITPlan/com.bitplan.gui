@@ -25,6 +25,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import com.bitplan.error.ErrorHandler;
 import com.google.gson.Gson;
@@ -37,6 +39,8 @@ import com.google.gson.GsonBuilder;
  *
  */
 public class JsonManagerImpl<T extends JsonAble> implements JsonManager<T> {
+  public static transient final String DATE_FORMAT="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+  public static transient final DateFormat dateFormat=new SimpleDateFormat(DATE_FORMAT);
   Class<T> clazz;
   T instance;
 
@@ -116,7 +120,8 @@ public class JsonManagerImpl<T extends JsonAble> implements JsonManager<T> {
   public static Gson getGsonStatic() {
     GsonBuilder gsonBuilder = new GsonBuilder();
     // new GraphAdapterBuilder().addType(Pid.class).registerOn(gsonBuilder);
-    Gson gson = gsonBuilder.setPrettyPrinting().create();
+    // https://stackoverflow.com/a/26631632/1497139
+    Gson gson = gsonBuilder.setPrettyPrinting().setDateFormat(DATE_FORMAT).create();
     return gson;
   }
 
