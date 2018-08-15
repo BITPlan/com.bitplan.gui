@@ -28,7 +28,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TimeZone;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.bitplan.json.TestJson.PoJo.BaseColor;
@@ -40,6 +42,10 @@ import com.bitplan.json.TestJson.PoJo.BaseColor;
  */
 public class TestJson {
   public static boolean debug=true;
+  @BeforeClass 
+  public static void setTimeZone() {
+    TimeZone.setDefault(TimeZone.getTimeZone("EuropeBerlin"));
+  }
   public class Person implements JsonAble {
     String name;
     String firstname;
