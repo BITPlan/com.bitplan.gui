@@ -44,7 +44,7 @@ public class TestJson {
   public static boolean debug=true;
   @BeforeClass 
   public static void setTimeZone() {
-    TimeZone.setDefault(TimeZone.getTimeZone("EuropeBerlin"));
+    TimeZone.setDefault(TimeZone.getTimeZone("Europe/Berlin"));
   }
   public class Person implements JsonAble {
     String name;
