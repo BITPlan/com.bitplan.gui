@@ -39,7 +39,7 @@ import com.google.gson.GsonBuilder;
  *
  */
 public class JsonManagerImpl<T extends JsonAble> implements JsonManager<T> {
-  public static transient final String DATE_FORMAT="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+  public static transient final String DATE_FORMAT="yyyy-MM-dd'T'HH:mm:ss.SSS";
   public static transient final DateFormat dateFormat=new SimpleDateFormat(DATE_FORMAT);
   Class<T> clazz;
   T instance;

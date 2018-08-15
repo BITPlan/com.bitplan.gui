@@ -23,6 +23,8 @@ package com.bitplan.json;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -37,7 +39,7 @@ import com.bitplan.json.TestJson.PoJo.BaseColor;
  *
  */
 public class TestJson {
-
+  public static boolean debug=true;
   public class Person implements JsonAble {
     String name;
     String firstname;
@@ -105,12 +107,11 @@ public class TestJson {
   
   @Test
   public void testMap() {
-    boolean debug=true;
     Date now=new Date(1534077204741L);
     PoJo pojo=new PoJo(BaseColor.Red,now,1,2,3,4L,5.0,6.0,false,true,"txt",null);
     String json="{\n" + 
         "  \"baseColor\": \"Red\",\n" + 
-        "  \"date\": \"2018-08-12T14:33:24.741Z\",\n" + 
+        "  \"date\": \"2018-08-12T14:33:24.741\",\n" + 
         "  \"i\": 1,\n" + 
         "  \"i2\": 2,\n" + 
         "  \"l\": 3,\n" + 
@@ -137,5 +138,23 @@ public class TestJson {
     PoJo pojo2=new PoJo();
     pojo2.fromMap(map);
     assertEquals(json,pojo2.asJson());
+  }
+  
+  @Test
+  public void testTimeZoneHandling() {
+    PoJo pojo=new PoJo();
+    Date now=new Date(1534077204741L);
+    pojo.date=now;
+    DateFormat isoTimeZone=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    String json=pojo.asJson();
+    String nowStr = JsonManagerImpl.dateFormat.format(now);
+    String isoTimeZoneStr=isoTimeZone.format(now);
+    if (debug) {
+      System.out.println(json);
+      System.out.println(nowStr);
+      System.out.println(isoTimeZoneStr);
+    }
+    assertTrue(pojo.asJson().contains(nowStr));
+    assertTrue(isoTimeZoneStr.startsWith(nowStr));
   }
 }
