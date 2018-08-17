@@ -11,7 +11,7 @@ Generic Graphical User Interface decription interfaces
 ### Distribution
 Available at Maven Central see 
 
-http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.10|jar
+http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.12|jar
 
 Maven dependency:
 
@@ -19,7 +19,7 @@ Maven dependency:
 <dependency>
   <groupId>com.bitplan.gui</groupId>
   <artifactId>com.bitplan.gui</artifactId>
-  <version>0.0.10</version>
+  <version>0.0.12</version>
 </dependency>
 ```
 
@@ -44,3 +44,4 @@ https://www.apache.org/licenses/LICENSE-2.0
 * 2018-08-09 0.0.9 - refactors to add StopWatch interface
 * 2018-08-10 0.0.10 - fixes getInstance
 * 2018-08-11 0.0.11 - improves JsonAble
+* 2018-08-17 0.0.12 - removes debug option from JsonAble since its final

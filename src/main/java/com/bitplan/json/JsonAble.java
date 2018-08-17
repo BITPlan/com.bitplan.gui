@@ -39,7 +39,6 @@ import com.bitplan.i18n.Translator;
  *
  */
 public interface JsonAble extends AsJson, JsonValueMap {
-  public static boolean debug = true;
 
   /**
    * reinitialize me after being reloaded from json
@@ -115,8 +114,9 @@ public interface JsonAble extends AsJson, JsonValueMap {
             date = JsonManagerImpl.dateFormat.parse(dtext);
             map.put(field.getName(), date);
           } catch (ParseException e) {
-            if (debug)
-              e.printStackTrace();
+            // TODO proper handling
+            //if (debug)
+              // e.printStackTrace();
           }
         }
         break;
@@ -162,8 +162,9 @@ public interface JsonAble extends AsJson, JsonValueMap {
           }
           field.set(this, value);
         } catch (IllegalArgumentException | IllegalAccessException e) {
-          if (debug)
-            e.printStackTrace();
+          // TODO
+          // proper handling
+          // e.printStackTrace();
         }
       }
     }
