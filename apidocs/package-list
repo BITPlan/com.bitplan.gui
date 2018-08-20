@@ -1,3 +1,6 @@
-com.bitplan.fritzbox
-de.ingo.fritzbox.data
-de.ingo.fritzbox.utils
+com.bitplan.appconfig
+com.bitplan.error
+com.bitplan.gui
+com.bitplan.i18n
+com.bitplan.json
+com.bitplan.states
