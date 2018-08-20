@@ -51,7 +51,7 @@ public interface StopWatch {
   
   /**
    * get my ISO representation
-   * @return
+   * @return my IsoDate representation
    */
   String asIsoDateStr();
 }

@@ -155,7 +155,6 @@ public abstract class TestI18n {
     /**
      * set the errors
      * 
-     * @param checkMenu
      */
     public void setErrors() {
       for (Check check : checks) {
