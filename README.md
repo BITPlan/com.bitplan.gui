@@ -1,20 +1,19 @@
-# com.bitplan.gui
-Generic Graphical User Interface decription interfaces
+### com.bitplan.gui
+[generic GUI interface description](http://www.bitplan.com/Com.bitplan.gui) 
 
-[![Build Status](https://travis-ci.org/BITPlan/com.bitplan.gui.svg?branch=master)](https://travis-ci.org/BITPlan/com.bitplan.gui)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.bitplan.gui/com.bitplan.gui/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.bitplan.gui/com.bitplan.gui)
+[![Travis (.org)](https://img.shields.io/travis/BITPlan/com.bitplan.gui.svg)](https://travis-ci.org/BITPlan/com.bitplan.gui)
+[![Maven Central](https://img.shields.io/maven-central/v/com.bitplan.gui/com.bitplan.gui.svg)](https://search.maven.org/artifact/com.bitplan.gui/com.bitplan.gui/0.0.12/jar)
+[![GitHub issues](https://img.shields.io/github/issues/BITPlan/com.bitplan.gui.svg)](https://github.com/BITPlan/com.bitplan.gui/issues)
+[![GitHub issues](https://img.shields.io/github/issues-closed/BITPlan/com.bitplan.gui.svg)](https://github.com/BITPlan/com.bitplan.gui/issues/?q=is%3Aissue+is%3Aclosed)
+[![GitHub](https://img.shields.io/github/license/BITPlan/com.bitplan.gui.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![BITPlan](http://wiki.bitplan.com/images/wiki/thumb/3/38/BITPlanLogoFontLessTransparent.png/198px-BITPlanLogoFontLessTransparent.png)](http://www.bitplan.com)
 
-### github repository
-* repository: https://github.com/BITPlan/com.bitplan.gui
-* issues: https://github.com/BITPlan/com.bitplan.gui/issues
+### Project pages
+[com.bitplan.gui](https://BITPlan.github.io/com.bitplan.gui)
 
-### Distribution
-Available at Maven Central see 
+### Maven dependency
 
-http://search.maven.org/#artifactdetails|com.bitplan.gui|com.bitplan.gui|0.0.12|jar
-
-Maven dependency:
-
+Maven dependency
 ```xml
 <dependency>
   <groupId>com.bitplan.gui</groupId>
@@ -23,15 +22,14 @@ Maven dependency:
 </dependency>
 ```
 
-### Documentation 
-see http://wiki.bitplan.com/index.php/com.bitplan.gui
+[Current release at repo1.maven.org](http://repo1.maven.org/maven2/com/bitplan/gui/com.bitplan.gui/0.0.12/)
 
-### License
-https://www.apache.org/licenses/LICENSE-2.0
-
-### Creator 
-[![BITPlan](http://wiki.bitplan.com/images/wiki/thumb/8/87/BITPlanLogo2012.svg/200px-BITPlanLogo2012.svg.png)](http://web.bitplan.com)
-
+### How to build
+```
+git clone https://github.com/BITPlan/com.bitplan.gui
+cd com.bitplan.gui
+mvn install
+```
 ### Version History
 * 2017-08-20 0.0.1 - initial release
 * 2017-08-21 0.0.2 - adds icon to groups

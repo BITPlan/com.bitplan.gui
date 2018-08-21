@@ -16,6 +16,8 @@
 	<properties>
 		<!-- for parent pom to work -->
 		<github.project>com.bitplan.gui</github.project>
+	    <!--  for readme generation -->
+		<documentation.wiki>http://www.bitplan.com/Com.bitplan.gui</documentation.wiki>
 		<!-- Dependency versions -->
 		<junit4.version>4.12</junit4.version>
 	</properties>
