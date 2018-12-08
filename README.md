@@ -1,5 +1,5 @@
 ### com.bitplan.gui
-[generic GUI interface description](http://www.bitplan.com/Com.bitplan.gui) 
+[generic GUI interface description](http://www.bitplan.com/Com.bitplan.gui)
 
 [![Travis (.org)](https://img.shields.io/travis/BITPlan/com.bitplan.gui.svg)](https://travis-ci.org/BITPlan/com.bitplan.gui)
 [![Maven Central](https://img.shields.io/maven-central/v/com.bitplan.gui/com.bitplan.gui.svg)](https://search.maven.org/artifact/com.bitplan.gui/com.bitplan.gui/0.0.12/jar)
@@ -17,6 +17,7 @@
 
 Maven dependency
 ```xml
+<!-- generic GUI interface description http://www.bitplan.com/Com.bitplan.gui -->
 <dependency>
   <groupId>com.bitplan.gui</groupId>
   <artifactId>com.bitplan.gui</artifactId>
