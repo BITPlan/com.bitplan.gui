@@ -3,14 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.bitplan.pom</groupId>
-		<artifactId>com.bitplan.pom</artifactId>
-		<version>0.0.17</version>
-		<relativePath>../com.bitplan.pom/pom.xml</relativePath> 
+   	  <groupId>com.bitplan.pom</groupId>
+	  <artifactId>com.bitplan.pom</artifactId>
+	  <version>0.0.18</version>
+	  <relativePath>../com.bitplan.pom/pom.xml</relativePath> 
 	</parent>
 	<groupId>com.bitplan.gui</groupId>
 	<artifactId>com.bitplan.gui</artifactId>
-	<version>0.0.13</version>
+	<version>0.0.14</version>
 	<name>com.bitplan.gui</name>
 	<description>generic GUI interface description</description>
 	<properties>
