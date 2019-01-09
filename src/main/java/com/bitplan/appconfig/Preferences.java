@@ -44,8 +44,8 @@ public class Preferences implements JsonAble {
   Boolean debug = false;
   Boolean autoStart = false;
   int screenPercent = 100;
-  String logDirectory = Translator.APPLICATION_PREFIX+"Logs";
-  String screenShotDirectory = Translator.APPLICATION_PREFIX+"ScreenShots";
+  String logDirectory = Translator.APPLICATION_PREFIX + "Logs";
+  String screenShotDirectory = Translator.APPLICATION_PREFIX + "ScreenShots";
   String logPrefix = Translator.APPLICATION_PREFIX; // e.g. my Ion
 
   public LangChoice getLanguage() {
@@ -106,9 +106,14 @@ public class Preferences implements JsonAble {
 
   @Override
   public void fromMap(Map<String, Object> map) {
-    String langChoiceStr = (String) map.get("language");
-    if (langChoiceStr != null)
-      this.setLanguage(LangChoice.valueOf(langChoiceStr));
+    Object langChoice = map.get("language");
+    if (langChoice instanceof LangChoice)
+      this.setLanguage((LangChoice) langChoice);
+    else {
+      String langChoiceStr = (String) langChoice;
+      if (langChoiceStr != null)
+        this.setLanguage(LangChoice.valueOf(langChoiceStr));
+    }
     this.setDebug((Boolean) map.get("debug"));
     this.autoStart = (Boolean) map.get("autoStart");
     Object value = map.get("screenPercent");

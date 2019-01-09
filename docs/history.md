@@ -11,3 +11,4 @@
 * 2018-08-10 0.0.10 - fixes getInstance
 * 2018-08-11 0.0.11 - improves JsonAble
 * 2018-08-17 0.0.12 - removes debug option from JsonAble since its final
+* 2019-01-09 0.0.13 - fixes #1 LangChoice in Preferences fromMap

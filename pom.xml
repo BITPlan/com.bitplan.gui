@@ -5,17 +5,17 @@
 	<parent>
 		<groupId>com.bitplan.pom</groupId>
 		<artifactId>com.bitplan.pom</artifactId>
-		<version>0.0.16</version>
+		<version>0.0.17</version>
 		<relativePath>../com.bitplan.pom/pom.xml</relativePath> 
 	</parent>
 	<groupId>com.bitplan.gui</groupId>
 	<artifactId>com.bitplan.gui</artifactId>
-	<version>0.0.12</version>
+	<version>0.0.13</version>
 	<name>com.bitplan.gui</name>
 	<description>generic GUI interface description</description>
 	<properties>
-		<!-- for parent pom to work -->
-		<github.project>com.bitplan.gui</github.project>
+	    <!-- for parent pom to work -->
+	    <github.project>com.bitplan.gui</github.project>
 	    <!--  for readme generation -->
 		<documentation.wiki>http://www.bitplan.com/Com.bitplan.gui</documentation.wiki>
 	</properties>
