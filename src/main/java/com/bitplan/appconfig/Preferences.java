@@ -43,7 +43,10 @@ public class Preferences implements JsonAble {
   LangChoice language = LangChoice.notSet;
   Boolean debug = false;
   Boolean autoStart = false;
-  int screenPercent = 100;
+  Integer screenPercent = 100;
+  Integer darkBrightness = 32;
+  Integer lightBrightness = 255;
+
   String logDirectory = Translator.APPLICATION_PREFIX + "Logs";
   String screenShotDirectory = Translator.APPLICATION_PREFIX + "ScreenShots";
   String logPrefix = Translator.APPLICATION_PREFIX; // e.g. my Ion
@@ -80,6 +83,22 @@ public class Preferences implements JsonAble {
     this.screenPercent = screenPercent;
   }
 
+  public int getDarkBrightness() {
+    return darkBrightness;
+  }
+
+  public void setDarkBrightness(int darkBrightness) {
+    this.darkBrightness = darkBrightness;
+  }
+
+  public int getLightBrightness() {
+    return lightBrightness;
+  }
+
+  public void setLightBrightness(int lightBrightness) {
+    this.lightBrightness = lightBrightness;
+  }
+
   public String getLogPrefix() {
     return logPrefix;
   }
@@ -104,6 +123,22 @@ public class Preferences implements JsonAble {
     this.screenShotDirectory = screenShotDirectory;
   }
 
+  /**
+   * get the number for the given eky
+   * @param map
+   * @param key
+   * @return the number
+   */
+  public Integer getNumber(Map<String, Object> map, String key) {
+    Object value=map.get(key);
+    if (value != null) {
+      if (value instanceof Double)
+        return ((Double) value).intValue();
+      else
+        return (Integer) value;
+    }
+    return null;
+  }
   @Override
   public void fromMap(Map<String, Object> map) {
     Object langChoice = map.get("language");
@@ -116,13 +151,9 @@ public class Preferences implements JsonAble {
     }
     this.setDebug((Boolean) map.get("debug"));
     this.autoStart = (Boolean) map.get("autoStart");
-    Object value = map.get("screenPercent");
-    if (value != null) {
-      if (value instanceof Double)
-        this.screenPercent = ((Double) value).intValue();
-      else
-        this.screenPercent = (Integer) value;
-    }
+    this.screenPercent = getNumber(map,"screenPercent");
+    this.lightBrightness=getNumber(map,"lightBrightness");
+    this.darkBrightness=getNumber(map,"darkBrightness");
     this.logPrefix = (String) map.get("logPrefix");
     this.logDirectory = (String) map.get("logDirectory");
     this.screenShotDirectory = (String) map.get("screenShotDirectory");

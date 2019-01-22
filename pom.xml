@@ -5,12 +5,12 @@
 	<parent>
    	  <groupId>com.bitplan.pom</groupId>
 	  <artifactId>com.bitplan.pom</artifactId>
-	  <version>0.0.18</version>
+	  <version>0.0.21</version>
 	  <relativePath>../com.bitplan.pom/pom.xml</relativePath> 
 	</parent>
 	<groupId>com.bitplan.gui</groupId>
 	<artifactId>com.bitplan.gui</artifactId>
-	<version>0.0.14</version>
+	<version>0.0.15</version>
 	<name>com.bitplan.gui</name>
 	<description>generic GUI interface description</description>
 	<properties>
