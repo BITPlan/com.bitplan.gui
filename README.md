@@ -2,7 +2,7 @@
 [generic GUI interface description](http://www.bitplan.com/Com.bitplan.gui) 
 
 [![Travis (.org)](https://img.shields.io/travis/BITPlan/com.bitplan.gui.svg)](https://travis-ci.org/BITPlan/com.bitplan.gui)
-[![Maven Central](https://img.shields.io/maven-central/v/com.bitplan.gui/com.bitplan.gui.svg)](https://search.maven.org/artifact/com.bitplan.gui/com.bitplan.gui/0.0.14/jar)
+[![Maven Central](https://img.shields.io/maven-central/v/com.bitplan.gui/com.bitplan.gui.svg)](https://search.maven.org/artifact/com.bitplan.gui/com.bitplan.gui/0.0.15/jar)
 [![GitHub issues](https://img.shields.io/github/issues/BITPlan/com.bitplan.gui.svg)](https://github.com/BITPlan/com.bitplan.gui/issues)
 [![GitHub issues](https://img.shields.io/github/issues-closed/BITPlan/com.bitplan.gui.svg)](https://github.com/BITPlan/com.bitplan.gui/issues/?q=is%3Aissue+is%3Aclosed)
 [![GitHub](https://img.shields.io/github/license/BITPlan/com.bitplan.gui.svg)](https://www.apache.org/licenses/LICENSE-2.0)
@@ -20,11 +20,11 @@ Maven dependency
 <dependency>
   <groupId>com.bitplan.gui</groupId>
   <artifactId>com.bitplan.gui</artifactId>
-  <version>0.0.14</version>
+  <version>0.0.15</version>
 </dependency>
 ```
 
-[Current release at repo1.maven.org](http://repo1.maven.org/maven2/com/bitplan/gui/com.bitplan.gui/0.0.14/)
+[Current release at repo1.maven.org](http://repo1.maven.org/maven2/com/bitplan/gui/com.bitplan.gui/0.0.15/)
 
 ### How to build
 ```
