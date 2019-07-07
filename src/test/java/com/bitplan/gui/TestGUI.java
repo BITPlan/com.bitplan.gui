@@ -44,9 +44,13 @@ public class TestGUI {
     String []items={"File","Edit","Window","Help"};
     for (String item:items) {
       MenuItem menuItem=new MenuItem();
-      menuItem.id=item;
-      menuItem.title=item;
+      menuItem.setId(item);
+      menuItem.setTitle(item);
+      menuItem.setShortCut(item.substring(1,2));
       mainMenu.getMenuItems().add(menuItem);
+      assertEquals(item,menuItem.getId());
+      assertEquals(item,menuItem.getTitle());
+      assertEquals(1,menuItem.getShortCut().length());
     }
     app.setMainMenu(mainMenu);
     String json=app.asJson();
@@ -58,5 +62,22 @@ public class TestGUI {
     assertNotNull(app2.getMainMenu());
     assertEquals(items.length,app2.getMainMenu().menuItems.size());
     assertEquals(app2.asJson(),app.asJson());
+  }
+  
+  @Test
+  /**
+   * test the automatic assignment of ids and i18nids from the title attributes if no id has been actively set
+   */
+  public void testI18nId() {
+    Menu menu=new Menu();
+    menu.setTitle("menu");
+    assertEquals("menu",menu.getTitle());
+    MenuItem menuItem=new MenuItem();
+    menuItem.setTitle("menuItem");
+    menu.menuItems.add(menuItem);
+    assertEquals(1,menu.getMenuItems().size());
+    menu.reinit();
+    assertEquals("menuMenu.menuItemMenuItem",menuItem.getId());
+    assertEquals(menuItem.getId(),menuItem.getI18nId());
   }
 }
