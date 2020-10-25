@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -52,6 +53,11 @@ public abstract class TestI18n {
   @BeforeClass
   public static void unsetLenient() {
     Translator.lenient = false;
+  }
+  
+  @AfterClass
+  public static void setLenient() {
+    Translator.lenient = true;
   }
 
   @SuppressWarnings("rawtypes")
